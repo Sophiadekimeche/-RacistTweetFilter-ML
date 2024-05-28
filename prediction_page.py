@@ -9,10 +9,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import StackingClassifier
 
 # Define file paths for loading the model, vectorizer, and image
-model_path = r"C:\Users\dekis\OneDrive\Desktop\DATA SCIENCE\FINAL PROJECT\ds-final-project-main\ds-final-project-main\model.pkl"
-vectorizer_path = r"C:\Users\dekis\OneDrive\Desktop\DATA SCIENCE\FINAL PROJECT\ds-final-project-main\ds-final-project-main\vectorizer.pkl"
-image_path = r"C:\Users\dekis\OneDrive\Desktop\DATA SCIENCE\FINAL PROJECT\ds-final-project-main\ds-final-project-main\tweeter and X LOGO.jpg"
-data_path = r"C:\Users\dekis\OneDrive\Desktop\DATA SCIENCE\FINAL PROJECT\ds-final-project-main\ds-final-project-main\twitter_racism_parsed_dataset.csv"
+model_path = "model.pkl"
+vectorizer_path = "vectorizer.pkl"
+image_path = "tweeter and X LOGO.jpg"
+data_path = "twitter_racism_parsed_dataset.csv"
 
 def load_model_and_vectorizer():
     with open(model_path, 'rb') as model_file:
@@ -45,8 +45,8 @@ def prediction_page(dark_mode):
         model, vectorizer = load_model_and_vectorizer()
         result, probability = predict_tweet(model, vectorizer, user_input)
         st.write(f"Prediction: {result}")
-        st.write(f"Probability of it containing 'Not Racist': {probability[0]:.2f}")
-        st.write(f"Probability of it containing 'Racist': {probability[1]:.2f}")
+        st.write(f"Probability of being 'Not Racist': {probability[0]:.2f}")
+        st.write(f"Probability of being 'Racist': {probability[1]:.2f}")
 
         # Visualize the probability
         fig, ax = plt.subplots()
