@@ -7,7 +7,7 @@ from PIL import Image
 def main():
     dark_mode = st.sidebar.checkbox('Dark Mode', key="dark_mode")
     st.sidebar.markdown(
-        f"<h1 style='color: {"#000000" if dark_mode else "#000000"};'>Navigation</h1>",
+        f"<h1 style='color: {'#000000' if dark_mode else '#000000'};'>Navigation</h1>",
         unsafe_allow_html=True
     )
     add_css(dark_mode)  # Apply CSS based on dark mode
@@ -21,7 +21,7 @@ def main():
     if page == "Prediction":
         prediction_page(dark_mode)
     elif page == "About":
-        st.title("Our Model and Its Impact in combating racism")
+        st.title("Combating Racism with AI")
         st.markdown("""
         <div class="about-section">
             <p>Many tweets contain harmful content that can affect individuals and communities. This model helps in identifying such racist content in tweets, enabling us to take appropriate actions to reduce the spread of harmful content on social media platforms.</p>
@@ -31,7 +31,7 @@ def main():
         """, unsafe_allow_html=True)
 
         # Add the PDF and description
-        pdf_path = r"C:\Users\dekis\OneDrive\Desktop\DATA SCIENCE\FINAL PROJECT\ds-final-project-main\ds-final-project-main\racism graphs comparison canada and rest of the world.pdf"
+        pdf_path = "racism graphs comparison canada and rest of the world.pdf"
         
         # Read the PDF
         pdf_document = fitz.open(pdf_path)
@@ -54,7 +54,7 @@ def main():
         # Add footer at the bottom of the page
         st.markdown("""
         <div class="footer">
-            Developed by Sophia D
+            Developed by [Your Name]
         </div>
         """, unsafe_allow_html=True)
 
@@ -122,3 +122,4 @@ def add_css(dark_mode):
 
 if __name__ == '__main__':
     main()
+    
